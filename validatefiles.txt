@@ -5,10 +5,10 @@ pipeline {
     stage('Checking versions') {
       steps {
           script{
-            def nodeVersion = bat(script: 'node -v', returnStdout: true).trim()
-            def npmVersion  = bat(script: 'npm -v', returnStdout: true).trim()
-            echo "La versión de Node es: ${nodeVersion}"
-            echo "La versión de NPM es: ${npmVersion}"
+            def nodeVersion = bat(script: cmd /c "node -v", returnStdout: true).trim()
+            def npmVersion  = bat(script: cmd /c "npm -v", returnStdout: true).trim()
+            echo "La version de Node es: ${nodeVersion}"
+            echo "La version de NPM es: ${npmVersion}"
             //The same as
             //bat 'node -v'
             //bat 'npm -v'
