@@ -5,10 +5,11 @@ pipeline {
     stage('Checking versions') {
       steps {
           script{
+			//Save all the respond
             def nodeOutput = bat(script: 'node -v', returnStdout: true).trim()
             def npmOutput  = bat(script: 'npm -v', returnStdout: true).trim()
             
-            // Tomar solo la última línea
+            //Use only the last line for printing node and npm versions
             def nodeVersion = nodeOutput.readLines().last()
             def npmVersion  = npmOutput.readLines().last()
 			
