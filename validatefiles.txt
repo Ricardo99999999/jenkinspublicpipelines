@@ -5,6 +5,11 @@ pipeline {
     stage('Checking versions and preconditions') {
       steps {
           script{
+			//Eliminar en caso de que se quede algo en caché, ya que me estaba recogiendo una versión de npm que no era la correcta
+			bat 'npm cache clean --force'
+
+			//Eliminar toda la información del directorio
+			deleteDir()
 			//Save all the respond
             def nodeOutput = bat(script: 'node -v', returnStdout: true).trim()
             def npmOutput  = bat(script: 'npm -v', returnStdout: true).trim()
@@ -18,8 +23,8 @@ pipeline {
             //The same as
             //bat 'node -v'
             //bat 'npm -v'
-			//Eliminar en caso de que se quede algo en caché, ya que me estaba recogiendo una versión de npm que no era la correcta
-			bat 'npm cache clean --force'
+
+
           }
       }
     }
