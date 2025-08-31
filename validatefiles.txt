@@ -44,8 +44,8 @@ pipeline {
 			//if (status != 0) {
             // Esto NO rompe el build, lo deja en amarillo (warning). Logica para hacer que no sea bloqueante, si se quiere que sea bloqueante, se eliminaría el IF
             //unstable("Fallo en la validacion, pero marcamos UNSTABLE en lugar de FAIL")
-			//node ./index.js
-          }
+			node ./index.js
+          //}
 		}		
 
       }
