@@ -39,7 +39,7 @@ pipeline {
       steps {
 		script{
 			//bat 'npm run validate' , es lo mismo pero inyectado en una variable
-			def status = bat(script: 'npm run validate', returnStatus: true).trim() 
+			def status = bat(script: 'npm run validate', returnStatus: true)
 			echo "El valor de la variable status es: ${status}"
 			if (status != 0) {
             // Esto NO rompe el build, lo deja en amarillo (warning). Logica para hacer que no sea bloqueante, si se quiere que sea bloqueante, se eliminaría el IF
