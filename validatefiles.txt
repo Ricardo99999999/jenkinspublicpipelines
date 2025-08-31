@@ -38,7 +38,7 @@ pipeline {
 	
 	stage('Run validate') {
       steps {
-		//script{
+		script{
 			//def status = bat(script: 'npm run validate', returnStatus: true) //bat 'npm run validate' , es lo mismo pero inyectado en una variable , recogiendo su estado de salida
 			def status = bat(script: 'node ./index.js', returnStatus: true) //bat 'node ./index.js' , es lo mismo pero inyectado en una variable , recogiendo su estado de salida
 			echo "El valor de la variable status es: ${status}"
