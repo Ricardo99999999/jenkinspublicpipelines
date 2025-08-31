@@ -16,7 +16,7 @@ pipeline {
 			deleteDir()
 
 			// Después de limpiar
-			echo "Estos son los archivos que tiene después de la limpieza"
+			echo "Estos son los archivos que tiene despues de la limpieza"
 			bat 'dir /s /b'
 
 			//Save all the respond
