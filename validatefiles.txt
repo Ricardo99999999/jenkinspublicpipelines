@@ -8,8 +8,18 @@ pipeline {
 			//Eliminar en caso de que se quede algo en caché, ya que me estaba recogiendo una versión de npm que no era la correcta
 			bat 'npm cache clean --force'
 
+			// Antes de limpiar
+			bat 'dir /s /b'
+
 			//Eliminar toda la información del directorio
 			deleteDir()
+
+			// Limpiar
+			//bat 'rmdir /s /q node_modules'
+
+			// Después de limpiar
+			bat 'dir /s /b'
+
 			//Save all the respond
             def nodeOutput = bat(script: 'node -v', returnStdout: true).trim()
             def npmOutput  = bat(script: 'npm -v', returnStdout: true).trim()
