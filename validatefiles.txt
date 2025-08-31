@@ -2,7 +2,7 @@ pipeline {
   agent any
   stages {
   
-    stage('Checking versions') {
+    stage('Checking versions and preconditions') {
       steps {
           script{
 			//Save all the respond
@@ -18,6 +18,8 @@ pipeline {
             //The same as
             //bat 'node -v'
             //bat 'npm -v'
+			//Eliminar en caso de que se quede algo en caché, ya que me estaba recogiendo una versión de npm que no era la correcta
+			bat 'npm cache clean --force'
           }
       }
     }
