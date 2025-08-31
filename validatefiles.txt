@@ -37,8 +37,8 @@ pipeline {
 	
 	stage('Run validate') {
       steps {
-		
 		script{
+			echo "estoy a punto de declarar la varaible"
 			//bat 'npm run validate' , es lo mismo pero inyectado en una variable
 			def status = bat(script: 'npm run validate', returnStdout: true).trim() 
 			echo "El valor de la variable status es: ${status}"
