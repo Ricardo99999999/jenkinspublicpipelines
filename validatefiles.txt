@@ -25,7 +25,7 @@ pipeline {
     stage('Cloning GitHub repository') {
       steps {
          // Clone GitHub repository
-        git branch: 'master', url: 'https://github.com/Ricardo99999999/developmentproofs'
+        git branch: 'master', url: 'https://github.com/Ricardo99999999/developmentproofs.git'
       }
     }
 	
