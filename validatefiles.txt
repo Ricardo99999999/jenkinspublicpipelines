@@ -37,8 +37,11 @@ pipeline {
 	
 	stage('Run validate') {
       steps {
+		
 		script{
-			def status = bat(script: 'npm run validate', returnStdout: true).trim() //bat 'npm run validate' , es lo mismo pero inyectado en una variable
+			//bat 'npm run validate' , es lo mismo pero inyectado en una variable
+			def status = bat(script: 'npm run validate', returnStdout: true).trim() 
+			echo "El valor de la variable status es: ${status}"
 			if (status != 0) {
             // Esto NO rompe el build, lo deja en amarillo (warning). Logica para hacer que no sea bloqueante, si se quiere que sea bloqueante, se eliminaría el IF
             unstable("❗ Validación falló, pero marcamos UNSTABLE en lugar de FAIL")
