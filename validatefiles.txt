@@ -40,13 +40,14 @@ pipeline {
       steps {
 		//script{
 			//def status = bat(script: 'npm run validate', returnStatus: true) //bat 'npm run validate' , es lo mismo pero inyectado en una variable , recogiendo su estado de salida
-			//echo "El valor de la variable status es: ${status}"
-			//if (status != 0) {
+			def status = bat(script: 'node ./index.js', returnStatus: true) //bat 'node ./index.js' , es lo mismo pero inyectado en una variable , recogiendo su estado de salida
+			echo "El valor de la variable status es: ${status}"
+			if (status != 0) {
             // Esto NO rompe el build, lo deja en amarillo (warning). Logica para hacer que no sea bloqueante, si se quiere que sea bloqueante, se eliminaría el IF
-            //unstable("Fallo en la validacion, pero marcamos UNSTABLE en lugar de FAIL")
-			bat 'node ./index.js'
-          //}
-		//}		
+            unstable("Fallo en la validacion, pero marcamos UNSTABLE en lugar de FAIL")
+			
+          }
+		}		
 
       }
     }
