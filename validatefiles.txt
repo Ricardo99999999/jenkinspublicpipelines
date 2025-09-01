@@ -49,7 +49,7 @@ pipeline {
 	stage('Install dependencies') {
       steps {
         bat 'npm install'
-		bat 'npm list validatefiles'
+		//bat 'npm list validatefiles' //Comprueba la version del paquete validatefiles
 		//bat 'npm install validatefiles@latest'
 		//bat 'npm list validatefiles'
       }
